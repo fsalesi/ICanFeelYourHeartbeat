@@ -5,15 +5,15 @@
 
   <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
     <![CDATA[
-    <?php
-    $tile = array(
-      'title'   => 'ICanFeelYourHeartbeat',
-      'icon'    => 'fa-heartbeat',
-      'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
-      'order'   => 99
-    );
-    return $tile;
-    ?>
+<?php
+$tile = array(
+  'title'   => 'ICanFeelYourHeartbeat',
+  'icon'    => 'fa-heartbeat',
+  'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
+  'order'   => 99
+);
+return $tile;
+?>
     ]]>
   </FILE>
 
