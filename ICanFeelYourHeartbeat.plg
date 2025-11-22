@@ -29,7 +29,7 @@
     <Page>ICanFeelYourHeartbeat_dashboard.page</Page>
 
     <FILE Name="&emhttp;/ICanFeelYourHeartbeat_dashboard.page" Mode="0644">
-      <URL>&gitURL;/ICanFeelYourHeartbeat_dashboard.page</URL>
+      <URL>https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/refs/heads/master/ICanFeelYourHeartbeat_dashboard.page</URL>
     </FILE>
 
     <!-- Install script -->
