@@ -1,0 +1,88 @@
+<?xml version='1.0' standalone='yes'?>
+
+<!DOCTYPE PLUGIN [
+<!ENTITY name      "hello-frank">
+<!ENTITY author    "Frank">
+<!ENTITY version   "2024.11.21">
+<!ENTITY launch    "Dashboard">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
+<!ENTITY pluginURL "&gitURL;/hello-frank.plg">
+<!ENTITY plugin    "/boot/config/plugins/&name;">
+<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
+]>
+
+<PLUGIN name="&name;" 
+        author="&author;" 
+        version="&version;" 
+        launch="&launch;" 
+        pluginURL="&pluginURL;"
+        min="6.9.0">
+
+<CHANGES>
+##&name;
+
+###&version;
+- Initial release
+- Displays "Hi Frank" dashboard tile
+</CHANGES>
+
+<!-- Create the dashboard tile PHP file -->
+<FILE Name="&emhttp;/HelloFrank.page">
+<INLINE>
+<![CDATA[
+Title="Hello Frank"
+Icon="icon-smile"
+---
+]]>
+</INLINE>
+</FILE>
+
+<FILE Name="&emhttp;/HelloFrankTile.php">
+<INLINE>
+<![CDATA[
+<?php
+$hello_text = "Hi Frank";
+?>
+<div style="text-align: center; padding: 20px; font-size: 24px; font-weight: bold; color: #1c1c1c;">
+  <?=$hello_text?>
+</div>
+<div style="text-align: center; padding: 10px; color: #666;">
+  Welcome to your custom Unraid plugin!
+</div>
+]]>
+</INLINE>
+</FILE>
+
+<!-- Install script -->
+<FILE Run="/bin/bash" Method="install">
+<INLINE>
+echo "Installing &name;..."
+
+# Create plugin directories
+mkdir -p &emhttp;
+mkdir -p &plugin;
+
+# Set proper permissions
+chmod 755 &emhttp;
+chmod 644 &emhttp;/*.php
+chmod 644 &emhttp;/*.page
+
+echo "&name; v&version; installed successfully!"
+echo "You should see a 'Hello Frank' tile on your dashboard."
+</INLINE>
+</FILE>
+
+<!-- Remove script -->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+echo "Removing &name;..."
+
+# Remove all plugin files
+rm -rf &emhttp;
+rm -rf &plugin;
+
+echo "&name; removed successfully"
+</INLINE>
+</FILE>
+
+</PLUGIN>
