@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22f">
+<!ENTITY version   "2024.11.22h">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v6.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v8.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -103,7 +103,7 @@ Tag="heart"
   font-size: 16px;
 }
 </style>
-<tbody>
+<tbody class="sortable" title="I Can Feel Your Heartbeat">
   <tr>
     <td>
       <div class="heartbeat-tile">
