@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Plugin name="ICanFeelYourHeartbeat" author="YourName" version="2025.11.21" min="7.2" max="7.2">
+<Plugin name="ICanFeelYourHeartbeat" author="YourName" version="2025.11.21" min="7.2">
   <Category>Dashboard</Category>
   <Description>
     A stub plugin that adds a custom "ICanFeelYourHeartbeat" tile to the Unraid 7.2 dashboard.
