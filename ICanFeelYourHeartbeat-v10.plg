@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22i">
+<!ENTITY version   "2024.11.22j">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v9.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v10.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -84,7 +84,7 @@ Title="I Can Feel Your Heartbeat"
 Tag="heart"
 ---
 <style>
-.heartbeat-tile {
+.heartbeat-content {
   text-align: center;
   padding: 40px 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -103,7 +103,8 @@ Tag="heart"
   font-size: 16px;
 }
 </style>
-<tbody class="sortable" title="I Can Feel Your Heartbeat">
+<span id="heartbeat_tile" class="sortable" style="display:none">
+<tbody title="I Can Feel Your Heartbeat">
   <tr>
     <td>
       <i style="font-size:32px;vertical-align:top;" class="fa fa-heart icon"></i>
@@ -112,13 +113,19 @@ Tag="heart"
   </tr>
   <tr>
     <td>
-      <div class="heartbeat-tile">
+      <div class="heartbeat-content">
         <div class="heartbeat-title">Hi Frank! 👋</div>
         <div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>
       </div>
     </td>
   </tr>
 </tbody>
+</span>
+<script>
+$(function() {
+  $("#heartbeat_tile").appendTo("div[id$=Dashboard]").show();
+});
+</script>
 ]]>
 </INLINE>
 </FILE>
