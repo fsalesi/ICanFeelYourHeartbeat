@@ -1,0 +1,9 @@
+<?php
+$tile = array(
+  'title'   => 'ICanFeelYourHeartbeat',
+  'icon'    => 'fa-heartbeat',
+  'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
+  'order'   => 99
+);
+return $tile;
+?>

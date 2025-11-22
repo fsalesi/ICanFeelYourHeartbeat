@@ -1,20 +1,13 @@
 <?xml version="1.0"?>
 <Plugin name="ICanFeelYourHeartbeat" author="Frank" version="2025.11.22" min="6.9.0" max="7.2.0">
   <Category>Dashboard</Category>
-  <Description>Heartbeat dashboard tile plugin</Description>
+  <Description>Heartbeat dashboard tile plugin for Unraid</Description>
+  <Support>https://github.com/fsalesi/ICanFeelYourHeartbeat</Support>
+  <Icon>fa-heartbeat</Icon>
 
+  <!-- Dashboard tile file -->
   <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
-    <![CDATA[
-<?php
-$tile = array(
-  'title'   => 'ICanFeelYourHeartbeat',
-  'icon'    => 'fa-heartbeat',
-  'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
-  'order'   => 99
-);
-return $tile;
-?>
-    ]]>
+    <URL>https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master/dashboardtile.page</URL>
   </FILE>
 
   <Install>
