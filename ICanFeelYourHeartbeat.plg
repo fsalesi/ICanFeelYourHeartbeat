@@ -34,11 +34,30 @@
 <?php
 $hello_text = "Hi Frank";
 ?>
-<div style="text-align: center; padding: 20px; font-size: 24px; font-weight: bold; color: #1c1c1c;">
-  <?=$hello_text?>
-</div>
-<div style="text-align: center; padding: 10px; color: #666;">
-  Welcome to your custom Unraid plugin!
+<style>
+.heartbeat-tile {
+  text-align: center;
+  padding: 20px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heartbeat-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1c1c1c;
+  margin-bottom: 10px;
+}
+.heartbeat-subtitle {
+  color: #666;
+  font-size: 14px;
+}
+</style>
+<div class="heartbeat-tile">
+  <div class="heartbeat-title"><?=$hello_text?></div>
+  <div class="heartbeat-subtitle">Welcome to your custom Unraid plugin!</div>
 </div>
 ]]>
 </INLINE>
