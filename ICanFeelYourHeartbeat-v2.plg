@@ -3,7 +3,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22b">
+<!ENTITY version   "2024.11.22c">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
 <!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat.plg">
@@ -67,8 +67,9 @@
 <FILE Name="&emhttp;/ICanFeelYourHeartbeat.page">
 <INLINE>
 <![CDATA[
-Menu="Dashboard"
+Menu="Dashboard:2"
 Title="I Can Feel Your Heartbeat"
+Icon="heart"
 ---
 ]]>
 </INLINE>
