@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22n">
+<!ENTITY version   "2024.11.22o">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v14.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v15.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -83,11 +83,6 @@ Menu="Dashboard"
 Title="I Can Feel Your Heartbeat"
 Tag="heart"
 ---
-<?php
-require_once('/usr/local/emhttp/plugins/dynamix/include/Wrappers.php');
-$pluginname = "heartbeat";
-
-$mytiles[$pluginname]['column1'] = <<<EOT
 <style>
 .heartbeat-content {
   text-align: center;
@@ -108,33 +103,30 @@ $mytiles[$pluginname]['column1'] = <<<EOT
   font-size: 16px;
 }
 </style>
-<tbody title="I Can Feel Your Heartbeat">
-  <tr>
-    <td>
-      <span class='tile-header'>
-        <span class='tile-header-left'>
-          <i class='fa fa-heart f32'></i>
-          <div class='section'>I Can Feel Your Heartbeat</div>
-        </span>
-        <span class='tile-header-right'>
-          <span class='tile-header-right-controls'>
-            <i class='fa fa-fw fa-chevron-up control openclose' onclick='openClose($(this))' title='Show/Hide Content'></i>
-          </span>
-        </span>
-      </span>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <div class="heartbeat-content">
-        <div class="heartbeat-title">Hi Frank! 👋</div>
-        <div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>
-      </div>
-    </td>
-  </tr>
-</tbody>
-EOT;
-?>
+<script>
+$(function() {
+  var tile = $('<tbody title="I Can Feel Your Heartbeat">' +
+    '<tr><td>' +
+    '<span class="tile-header">' +
+    '<span class="tile-header-left">' +
+    '<i class="fa fa-heart f32"></i>' +
+    '<div class="section">I Can Feel Your Heartbeat</div>' +
+    '</span>' +
+    '<span class="tile-header-right">' +
+    '<span class="tile-header-right-controls">' +
+    '<i class="fa fa-fw fa-chevron-up control openclose" onclick="openClose($(this))" title="Show/Hide Content"></i>' +
+    '</span></span></span>' +
+    '</td></tr>' +
+    '<tr><td>' +
+    '<div class="heartbeat-content">' +
+    '<div class="heartbeat-title">Hi Frank! 👋</div>' +
+    '<div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>' +
+    '</div></td></tr>' +
+    '</tbody>');
+  
+  $('#db_box1').append(tile);
+});
+</script>
 ]]>
 </INLINE>
 </FILE>
