@@ -1,0 +1,13 @@
+<?php
+// dashboardtile.page
+// Defines the "ICanFeelYourHeartbeat" tile for the Unraid dashboard
+
+$tile = array(
+    'title'   => 'ICanFeelYourHeartbeat',
+    'icon'    => 'fa-heartbeat',
+    'content' => '<p>Your heartbeat tile is alive!</p>',
+    'order'   => 99
+);
+
+return $tile;
+?>
