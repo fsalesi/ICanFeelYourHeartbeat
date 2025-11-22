@@ -1,0 +1,228 @@
+<?xml version='1.0' standalone='yes'?>
+
+<!DOCTYPE PLUGIN [
+<!ENTITY name      "ICanFeelYourHeartbeat">
+<!ENTITY author    "Frank">
+<!ENTITY version   "2024.11.22p">
+<!ENTITY launch    "Settings/ICanFeelYourHeartbeat">
+<!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v16.plg">
+<!ENTITY plugin    "/boot/config/plugins/&name;">
+<!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
+]>
+
+<PLUGIN name="&name;" 
+        author="&author;" 
+        version="&version;" 
+        launch="&launch;" 
+        pluginURL="&pluginURL;"
+        support="https://github.com/fsalesi/ICanFeelYourHeartbeat/issues"
+        min="6.9.0">
+
+<CHANGES>
+##&name;
+
+###2024.11.22p
+- Fixed file permissions issue
+- Corrected dashboard tile implementation
+- Added proper settings page
+
+###2024.11.22o
+- Changed to Tag instead of Icon for dashboard tile
+- Simplified Menu to just "Dashboard"
+
+###2024.11.22c
+- Added Menu="Dashboard:2" for proper tile positioning
+- Added Icon parameter
+
+###2024.11.22b
+- Removed PHP, using pure HTML/CSS
+- Added purple gradient styling
+
+###2024.11.22a
+- Fixed dashboard tile content display
+- Added proper styling with flexbox
+
+###2024.11.21
+- Initial release
+- Displays "Hi Frank" dashboard tile
+</CHANGES>
+
+<!-- Create the settings page -->
+<FILE Name="&emhttp;/ICanFeelYourHeartbeat.page">
+<INLINE>
+<![CDATA[
+Menu="Settings"
+Title="I Can Feel Your Heartbeat"
+Icon="heart"
+---
+<?PHP
+$plugin = "ICanFeelYourHeartbeat";
+?>
+<style>
+.heartbeat-content {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+.heartbeat-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.heartbeat-subtitle {
+  color: #f0f0f0;
+  font-size: 18px;
+}
+</style>
+<div class="heartbeat-content">
+  <div class="heartbeat-title">Hi Frank! 👋</div>
+  <div class="heartbeat-subtitle">Your custom Unraid plugin is working perfectly!</div>
+</div>
+]]>
+</INLINE>
+</FILE>
+
+<!-- Create custom dashboard tile script -->
+<FILE Name="&emhttp;/include/Dashboard.php">
+<INLINE>
+<![CDATA[
+<?PHP
+$heartbeat_tile = <<<'EOT'
+<style>
+.heartbeat-dashboard-tile {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.heartbeat-dashboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.heartbeat-dashboard-subtitle {
+  color: #f0f0f0;
+  font-size: 14px;
+}
+</style>
+<script>
+$(function() {
+  // Create the custom tile
+  var tile = $('<tbody title="I Can Feel Your Heartbeat">')
+    .append($('<tr>').append($('<td>')
+      .append($('<span class="tile-header">')
+        .append($('<span class="tile-header-left">')
+          .append('<i class="fa fa-heart f32"></i>')
+          .append($('<div class="section">').text('I Can Feel Your Heartbeat'))
+        )
+        .append($('<span class="tile-header-right">')
+          .append($('<span class="tile-header-right-controls">')
+            .append('<i class="fa fa-fw fa-chevron-up control openclose" onclick="openClose($(this))" title="Show/Hide Content"></i>')
+          )
+        )
+      )
+    ))
+    .append($('<tr>').append($('<td>')
+      .append($('<div class="heartbeat-dashboard-tile">')
+        .append($('<div class="heartbeat-dashboard-title">').html('Hi Frank! 👋'))
+        .append($('<div class="heartbeat-dashboard-subtitle">').text('Your custom plugin is active'))
+      )
+    ));
+  
+  // Add to dashboard
+  $('#db_box1').append(tile);
+});
+</script>
+EOT;
+
+echo $heartbeat_tile;
+?>
+]]>
+</INLINE>
+</FILE>
+
+<!-- Install script -->
+<FILE Run="/bin/bash" Method="install">
+<INLINE>
+echo ""
+echo "----------------------------------------------------"
+echo " Installing &name; v&version;"
+echo "----------------------------------------------------"
+
+# Create plugin directories if they don't exist
+if [ ! -d "&emhttp;" ]; then
+  mkdir -p "&emhttp;"
+  echo "Created plugin directory: &emhttp;"
+fi
+
+if [ ! -d "&emhttp;/include" ]; then
+  mkdir -p "&emhttp;/include"
+  echo "Created include directory"
+fi
+
+if [ ! -d "&plugin;" ]; then
+  mkdir -p "&plugin;"
+  echo "Created config directory: &plugin;"
+fi
+
+# Set proper permissions
+chmod -R 755 "&emhttp;" 2>/dev/null || true
+
+# Verify installation
+if [ -f "&emhttp;/ICanFeelYourHeartbeat.page" ]; then
+  echo ""
+  echo "✓ Settings page created successfully"
+fi
+
+if [ -f "&emhttp;/include/Dashboard.php" ]; then
+  echo "✓ Dashboard tile created successfully"
+fi
+
+echo ""
+echo "----------------------------------------------------"
+echo " &name; v&version; installed successfully!"
+echo "----------------------------------------------------"
+echo " - Dashboard tile will appear on your dashboard"
+echo " - Settings page available at: Settings > &name;"
+echo "----------------------------------------------------"
+echo ""
+</INLINE>
+</FILE>
+
+<!-- Remove script -->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+echo ""
+echo "----------------------------------------------------"
+echo " Removing &name;"
+echo "----------------------------------------------------"
+
+# Remove all plugin files
+if [ -d "&emhttp;" ]; then
+  rm -rf "&emhttp;"
+  echo "✓ Plugin files removed"
+fi
+
+if [ -d "&plugin;" ]; then
+  rm -rf "&plugin;"
+  echo "✓ Config files removed"
+fi
+
+echo ""
+echo "----------------------------------------------------"
+echo " &name; removed successfully"
+echo "----------------------------------------------------"
+echo ""
+</INLINE>
+</FILE>
+
+</PLUGIN>
