@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22a">
+<!ENTITY version   "2024.11.22b">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v2.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -35,34 +35,30 @@
 <FILE Name="&emhttp;/ICanFeelYourHeartbeat.php">
 <INLINE>
 <![CDATA[
-<?php
-$hello_text = "Hi Frank";
-echo '<style>
+<style>
 .heartbeat-tile {
   text-align: center;
-  padding: 20px;
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 .heartbeat-title {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  color: #1c1c1c;
+  color: #ffffff;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 .heartbeat-subtitle {
-  color: #666;
-  font-size: 14px;
+  color: #f0f0f0;
+  font-size: 16px;
 }
 </style>
 <div class="heartbeat-tile">
-  <div class="heartbeat-title">' . $hello_text . '</div>
-  <div class="heartbeat-subtitle">Welcome to your custom Unraid plugin!</div>
-</div>';
-?>
+  <div class="heartbeat-title">Hi Frank! 👋</div>
+  <div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>
+</div>
 ]]>
 </INLINE>
 </FILE>
