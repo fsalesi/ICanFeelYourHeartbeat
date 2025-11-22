@@ -3,7 +3,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22">
+<!ENTITY version   "2024.11.22a">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
 <!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat.plg">
@@ -37,8 +37,7 @@
 <![CDATA[
 <?php
 $hello_text = "Hi Frank";
-?>
-<style>
+echo '<style>
 .heartbeat-tile {
   text-align: center;
   padding: 20px;
@@ -60,9 +59,10 @@ $hello_text = "Hi Frank";
 }
 </style>
 <div class="heartbeat-tile">
-  <div class="heartbeat-title"><?=$hello_text?></div>
+  <div class="heartbeat-title">' . $hello_text . '</div>
   <div class="heartbeat-subtitle">Welcome to your custom Unraid plugin!</div>
-</div>
+</div>';
+?>
 ]]>
 </INLINE>
 </FILE>
@@ -73,7 +73,6 @@ $hello_text = "Hi Frank";
 <![CDATA[
 Menu="Dashboard"
 Title="I Can Feel Your Heartbeat"
-Icon="fa-heartbeat"
 ---
 ]]>
 </INLINE>
