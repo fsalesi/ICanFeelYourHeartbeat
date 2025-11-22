@@ -1,36 +1,28 @@
 <?xml version="1.0"?>
-<Plugin name="ICanFeelYourHeartbeat" author="Frank Salesi" version="2025.11.22" min="7.2" max="7.99">
+<Plugin name="ICanFeelYourHeartbeat" author="Frank" version="2025.11.22" min="6.9.0" max="7.2.0">
   <Category>Dashboard</Category>
-  <Description>
-    Adds a custom dashboard tile to Unraid 7.2+.
-  </Description>
-  <Support>https://github.com/fsalesi/ICanFeelYourHeartbeat</Support>
-  <Icon>fa-heartbeat</Icon>
+  <Description>Heartbeat dashboard tile plugin</Description>
 
-<FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
-  <![CDATA[
-  <?php
-  $tile = array(
-    'title'   => 'ICanFeelYourHeartbeat',
-    'icon'    => 'fa-heartbeat',
-    'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
-    'order'   => 99
-  );
-  return $tile;
-  ?>
-  ]]>
-</FILE>
-
+  <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
+    <![CDATA[
+    <?php
+    $tile = array(
+      'title'   => 'ICanFeelYourHeartbeat',
+      'icon'    => 'fa-heartbeat',
+      'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
+      'order'   => 99
+    );
+    return $tile;
+    ?>
+    ]]>
+  </FILE>
 
   <Install>
-    <![CDATA[
-      echo "ICanFeelYourHeartbeat plugin installed."
-    ]]>
+    echo "ICanFeelYourHeartbeat plugin installed."
   </Install>
 
   <Remove>
-    <![CDATA[
-      rm -rf /usr/local/emhttp/plugins/ICanFeelYourHeartbeat
-    ]]>
+    rm -rf /usr/local/emhttp/plugins/ICanFeelYourHeartbeat
+    echo "ICanFeelYourHeartbeat plugin removed."
   </Remove>
 </Plugin>
