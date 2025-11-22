@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22k">
+<!ENTITY version   "2024.11.22m">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v11.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v13.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -111,8 +111,16 @@ $mytiles[$pluginname]['column1'] = <<<EOT
 <tbody title="I Can Feel Your Heartbeat">
   <tr>
     <td>
-      <i style="font-size:32px;vertical-align:top;" class="fa fa-heart icon"></i>
-      <div class="section">I Can Feel Your Heartbeat</div>
+      <span class='tile-header'>
+        <span class='tile-header-left'>
+          <i class='fa fa-heart f32'></i>
+          <div class='section'>I Can Feel Your Heartbeat</div>
+        </span>
+        <span class='tile-header-right'>
+          <span class='tile-header-right-controls'>
+          </span>
+        </span>
+      </span>
     </td>
   </tr>
   <tr>
