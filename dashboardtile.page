@@ -5,5 +5,3 @@ $page = array(
   'content' => '<p>Heartbeat detected. Your plugin is alive!</p>',
   'order'   => 99
 );
-return $page;
-?>
