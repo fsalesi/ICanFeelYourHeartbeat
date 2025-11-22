@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22e">
+<!ENTITY version   "2024.11.22f">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v5.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v6.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -103,10 +103,16 @@ Tag="heart"
   font-size: 16px;
 }
 </style>
-<div class="heartbeat-tile">
-  <div class="heartbeat-title">Hi Frank! 👋</div>
-  <div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>
-</div>
+<tbody>
+  <tr>
+    <td>
+      <div class="heartbeat-tile">
+        <div class="heartbeat-title">Hi Frank! 👋</div>
+        <div class="heartbeat-subtitle">Your custom Unraid plugin is working!</div>
+      </div>
+    </td>
+  </tr>
+</tbody>
 ]]>
 </INLINE>
 </FILE>
