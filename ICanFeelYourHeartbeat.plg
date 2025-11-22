@@ -5,10 +5,12 @@
   <Support>https://github.com/fsalesi/ICanFeelYourHeartbeat</Support>
   <Icon>fa-heartbeat</Icon>
 
-<FILE Name="/usr/local/emhttp/plugins/dynamix/dashboard/ICanFeelYourHeartbeat.page" Mode="0644">
-  <URL>https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master/dashboardtile.page</URL>
-</FILE>
+  <!-- Register the dashboard tile -->
+  <Page>dashboardtile.page</Page>
 
+  <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
+    <URL>https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/refs/heads/master/dashboardtile.page</URL>
+  </FILE>
 
   <Install>
     echo "ICanFeelYourHeartbeat plugin installed."
