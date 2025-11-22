@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name      "ICanFeelYourHeartbeat">
 <!ENTITY author    "Frank">
-<!ENTITY version   "2024.11.22c">
+<!ENTITY version   "2024.11.22d">
 <!ENTITY launch    "Dashboard">
 <!ENTITY gitURL    "https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/master">
-<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat.plg">
+<!ENTITY pluginURL "&gitURL;/ICanFeelYourHeartbeat-v4.plg">
 <!ENTITY plugin    "/boot/config/plugins/&name;">
 <!ENTITY emhttp    "/usr/local/emhttp/plugins/&name;">
 ]>
@@ -22,7 +22,19 @@
 <CHANGES>
 ##&name;
 
-###2024.11.22
+###2024.11.22d
+- Changed to Tag instead of Icon for dashboard tile
+- Simplified Menu to just "Dashboard"
+
+###2024.11.22c
+- Added Menu="Dashboard:2" for proper tile positioning
+- Added Icon parameter
+
+###2024.11.22b
+- Removed PHP, using pure HTML/CSS
+- Added purple gradient styling
+
+###2024.11.22a
 - Fixed dashboard tile content display
 - Added proper styling with flexbox
 
@@ -67,9 +79,9 @@
 <FILE Name="&emhttp;/ICanFeelYourHeartbeat.page">
 <INLINE>
 <![CDATA[
-Menu="Dashboard:2"
+Menu="Dashboard"
 Title="I Can Feel Your Heartbeat"
-Icon="heart"
+Tag="heart"
 ---
 ]]>
 </INLINE>
