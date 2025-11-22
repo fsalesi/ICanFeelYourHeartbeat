@@ -16,6 +16,7 @@
         version="&version;" 
         launch="&launch;" 
         pluginURL="&pluginURL;"
+        support="https://github.com/fsalesi/ICanFeelYourHeartbeat/issues"
         min="6.9.0">
 
 <CHANGES>
@@ -70,7 +71,7 @@ chmod 644 &emhttp;/*.php
 chmod 644 &emhttp;/*.page
 
 echo "&name; v&version; installed successfully!"
-echo "You should see a 'Hello Frank' tile on your dashboard."
+echo "You should see an 'I Can Feel Your Heartbeat' tile on your dashboard."
 </INLINE>
 </FILE>
 
