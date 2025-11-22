@@ -4,7 +4,7 @@
   <!ENTITY name       "ICanFeelYourHeartbeat">
   <!ENTITY author     "Frank">
   <!ENTITY version    "2025.11.22">
-  <!ENTITY branch     "master">
+  <!ENTITY branch     "refs/heads/master">
   <!ENTITY gitURL     "https://raw.githubusercontent.com/fsalesi/&name;/&branch;">
   <!ENTITY pluginURL  "&gitURL;/&name;.plg">
   <!ENTITY emhttp     "/usr/local/emhttp/plugins/&name;">
@@ -29,7 +29,7 @@
     <Page>ICanFeelYourHeartbeat_dashboard.page</Page>
 
     <FILE Name="&emhttp;/ICanFeelYourHeartbeat_dashboard.page" Mode="0644">
-      <URL>&gitURL;/dashboardtile.page</URL>
+      <URL>&gitURL;/ICanFeelYourHeartbeat_dashboard.page</URL>
     </FILE>
 
     <!-- Install script -->
