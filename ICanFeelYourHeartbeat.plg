@@ -6,9 +6,9 @@
   <Icon>fa-heartbeat</Icon>
 
   <!-- Register the dashboard tile -->
-  <Page>dashboardtile.page</Page>
+  <Page>dashboard/ICanFeelYourHeartbeat.page</Page>
 
-  <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboardtile.page" Mode="0644">
+  <FILE Name="/usr/local/emhttp/plugins/ICanFeelYourHeartbeat/dashboard/ICanFeelYourHeartbeat.page" Mode="0644">
     <URL>https://raw.githubusercontent.com/fsalesi/ICanFeelYourHeartbeat/refs/heads/master/dashboardtile.page</URL>
   </FILE>
 
