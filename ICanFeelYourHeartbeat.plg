@@ -73,7 +73,7 @@ $hello_text = "Hi Frank";
 <![CDATA[
 Menu="Dashboard"
 Title="I Can Feel Your Heartbeat"
-Icon="icon-heart"
+Icon="fa-heartbeat"
 ---
 ]]>
 </INLINE>
