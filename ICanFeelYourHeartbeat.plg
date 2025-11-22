@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="yes"?>
+
+<!DOCTYPE PLUGIN [
+  <!ENTITY name       "ICanFeelYourHeartbeat">
+  <!ENTITY author     "Frank">
+  <!ENTITY version    "2025.11.22">
+  <!ENTITY branch     "master">
+  <!ENTITY gitURL     "https://raw.githubusercontent.com/fsalesi/&name;/&branch;">
+  <!ENTITY pluginURL  "&gitURL;/&name;.plg">
+  <!ENTITY emhttp     "/usr/local/emhttp/plugins/&name;">
+  <!ENTITY plgPATH    "/boot/config/plugins/&name;">
+]>
+
+<PLUGIN  name="&name;"
+         author="&author;"
+         version="&version;"
+         pluginURL="&pluginURL;"
+         support="https://github.com/fsalesi/ICanFeelYourHeartbeat"
+         IconFA="heartbeat"
+         icon="fa-heartbeat">
+
+    <CHANGES>
+    ## &name;
+###2025.11.22
+- Initial release: adds heartbeat dashboard tile
+    </CHANGES>
+
+    <!-- Dashboard tile -->
+    <Page>ICanFeelYourHeartbeat_dashboard.page</Page>
+
+    <FILE Name="&emhttp;/ICanFeelYourHeartbeat_dashboard.page" Mode="0644">
+      <URL>&gitURL;/dashboardtile.page</URL>
+    </FILE>
+
+    <!-- Install script -->
+    <FILE Run="/bin/bash">
+      <INLINE>
+        echo ""
+        echo "-----------------------------------------------------------"
+        echo " &name; has been installed."
+        echo " Version: &version;"
+        echo "-----------------------------------------------------------"
+        echo ""
+      </INLINE>
+    </FILE>
+
+    <!-- Remove script -->
+    <FILE Run="/bin/bash" Method="remove">
+      <INLINE>
+        rm -rf &emhttp;
+        rm -rf &plgPATH;
+        echo ""
+        echo "-----------------------------------------------------------"
+        echo " &name; has been uninstalled."
+        echo " Version: &version;"
+        echo "-----------------------------------------------------------"
+        echo ""
+        exit 0
+      </INLINE>
+    </FILE>
+
+</PLUGIN>
